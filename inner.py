@@ -4,7 +4,7 @@ backend = hb.ServiceBackend(
     billing_project='leonhardgruenschloss-trial',
     bucket='leo-tmp-au')
 
-b = hb.Batch(backend=backend, name='test') 
+b = hb.Batch(backend=backend, name='inner') 
 
 j1 = b.new_job(name='hello') 
 j1.command('echo "hello world"') 

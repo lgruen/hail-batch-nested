@@ -7,8 +7,10 @@ RUN git clone https://github.com/populationgenomics/hail.git
 RUN pip3 install -r hail/hail/python/requirements.txt
 
 COPY deploy-config.json /deploy-config/deploy-config.json
-COPY nested.py .
+RUN mkdir ~/.hail && ln -s ~/.hail/tokens.json /user-tokens/tokens.json
+
+COPY inner.py .
 
 ENV PYTHONPATH=/app/hail/hail/python
 
-CMD [ "python3", "nested.py" ]
+CMD [ "python3", "inner.py" ]

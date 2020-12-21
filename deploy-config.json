@@ -1,1 +1,1 @@
-{"location": "gce", "default_namespace": "default", "service_namespace": {}, "domain": "hail.populationgenomics.org.au"}
+{"location": "external", "default_namespace": "default", "service_namespace": {}, "domain": "hail.populationgenomics.org.au"}
