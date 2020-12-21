@@ -7,7 +7,7 @@ RUN git clone https://github.com/populationgenomics/hail.git
 RUN pip3 install -r hail/hail/python/requirements.txt
 
 COPY deploy-config.json /deploy-config/deploy-config.json
-RUN mkdir ~/.hail && ln -s ~/.hail/tokens.json /user-tokens/tokens.json
+RUN mkdir ~/.hail && ln -fs /user-tokens/tokens.json ~/.hail/tokens.json
 
 COPY inner.py .
 
