@@ -1,14 +1,14 @@
-To compile the Docker image that launches the *inner* batch, set the
+To compile the Docker image that launches the inner batch, set the
 `GCP_PROJECT` environment variable and then run:
 
 ```shell
 gcloud builds submit --tag gcr.io/$GCP_PROJECT/hail-batch-nested:latest
 ```
 
-To be able to successfully submit the the *outer* batch that launches the
-*inner* batch, the outer's container image must have access to the session ID
-token. Currently, this requires setting `mount_tokens=True` when [creating] the
-main job.
+To be able to successfully submit the outer batch that launches the inner
+batch, the outer's container image must have access to the session ID token.
+Currently, this requires setting `mount_tokens=True` when [creating] the main
+job.
 
 [creating]: https://github.com/hail-is/hail/blob/main/hail/python/hailtop/batch/backend.py#L479
 
@@ -23,4 +23,4 @@ reach the internal gateway, but not the user container. Setting `location =
 the full domain to be used, which can be reached from the user container.
 However, that requires the token to be present at `~/.hail/tokens.json`.
 
-[iptables]: https://github.com/hail-is/hail/blob/main/batch/batch/driver/instance_pool.py#L318)
+[iptables]: https://github.com/hail-is/hail/blob/main/batch/batch/driver/instance_pool.py#L318
