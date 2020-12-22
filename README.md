@@ -17,7 +17,7 @@ The Docker image currently symlinks `/user-tokens/tokens.json` to
 not being allowed to send traffic to the internal gateway (blocked using
 [iptables] for the "public" network). Both the worker VM and container can
 reach the internal gateway, but not the user container. Setting `location =
-"gce"` in `/deploy-config/deploy-config.json` would allow us to use the
+"gce"` in `/deploy-config/deploy-config.json` would allow using the
 `/user-tokens/tokens.json` path. However, that causes the "internal"
 `batch.hail` domain to be used. Instead, using `location = "external"` causes
 the full domain to be used, which can be reached from the user container.
